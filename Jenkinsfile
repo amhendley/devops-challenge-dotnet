@@ -102,6 +102,12 @@ pipeline {
             }
         }
         stage('Promote') {
+            when {
+                anyOf {
+                    branch 'master';
+                    branch 'main'
+                }
+            }
             steps {
                 echo "Promote: Container image to release repository..."
             }
