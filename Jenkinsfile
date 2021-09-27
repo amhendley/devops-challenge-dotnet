@@ -49,7 +49,8 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                echo "Publish: Container image to staging repository..."
+                echo "Publish: Container image to DEVELOP Registry repository..."
+                echo "Publish: Database scripts to a DEVELOP Blob repository version folder..."
             }
         }    
         stage('Tests') {
@@ -98,7 +99,12 @@ pipeline {
                 }
             }
             steps {
-                echo "Deploy: Integration testing..."
+                echo "Deploy: Database delta changes..."
+                echo "Deploy: AWS ECS Cluster..."
+                echo "Deploy: AWS ECS Task Definition..."
+                echo "Deploy: AWS ECS Service..."
+                echo "Deploy: AWS NLB..."
+                echo "Deploy: AWS Route 53..."
             }
         }
         stage('Integration') {
@@ -110,6 +116,7 @@ pipeline {
             }
             steps {
                 echo "Integration: Perform integration tests..."
+                echo "Integration: Publish compliance reports to DEVELOP Blob repository version folder..."
             }
         }
         stage('Promote') {
@@ -120,8 +127,9 @@ pipeline {
                 }
             }
             steps {
-                echo "Promote: Container image to release repository..."
-            }
+                echo "Promote: DEVELOP repository Container image to a STAGING Registry repository..."
+                echo "Promote: DEVELOP Blob version folder to a STAGING Blob repository..."
+         
         }
         stage('Clean Up') {
             steps {
