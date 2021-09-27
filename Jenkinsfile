@@ -99,12 +99,12 @@ pipeline {
                 }
             }
             steps {
-                echo "Deploy: Database delta changes..."
                 echo "Deploy: AWS ECS Cluster..."
                 echo "Deploy: AWS ECS Task Definition..."
                 echo "Deploy: AWS ECS Service..."
                 echo "Deploy: AWS NLB..."
                 echo "Deploy: AWS Route 53..."
+                echo "Deploy: Database schema migration changes..."
             }
         }
         stage('Integration') {
