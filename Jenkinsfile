@@ -99,12 +99,22 @@ pipeline {
                 }
             }
             steps {
+                // Pre-existing AWS resources:
+                //  - VPC
+                //  - NAT Gateway
+                //  - Network ACL's
+                //  - Route Tables
+                //  - Subnets
+                //  - Internet Gateway
+                echo "Deploy: AWS KMS custom keys..."
+                echo "Deploy: AWS Security Groups..."
+                echo "Deploy: AWS MSSql RDS"
+                echo "Deploy: Database schema migration changes..."
                 echo "Deploy: AWS ECS Cluster..."
                 echo "Deploy: AWS ECS Task Definition..."
                 echo "Deploy: AWS ECS Service..."
-                echo "Deploy: AWS NLB..."
+                echo "Deploy: AWS ALB..."
                 echo "Deploy: AWS Route 53..."
-                echo "Deploy: Database schema migration changes..."
             }
         }
         stage('Integration') {
