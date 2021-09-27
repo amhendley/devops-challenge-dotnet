@@ -101,6 +101,17 @@ pipeline {
                 echo "Deploy: Integration testing..."
             }
         }
+        stage('Integration') {
+            when {
+                anyOf {
+                    branch 'master';
+                    branch 'main'
+                }
+            }
+            steps {
+                echo "Integration: Perform integration tests..."
+            }
+        }
         stage('Promote') {
             when {
                 anyOf {
