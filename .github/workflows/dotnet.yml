@@ -23,9 +23,9 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
 
-  package:
-    runs-on: ubuntu-latest
+  # package:
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - name: Create image
-      run: docker build -t dotnet-challenge:latest -t dotnet-challenge:0.${{ env.GITHUB_RUN_NUMBER }} .
+  #   steps:
+  #   - name: Create image
+  #     run: docker build -t dotnet-challenge:latest -t dotnet-challenge:0.${{ env.GITHUB_RUN_NUMBER }} .
